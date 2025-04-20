@@ -1,0 +1,45 @@
+<div class="chatbot-container">
+    <div class="messages-container" #messagesContainer>
+      <div *ngFor="let message of messages" class="message" [class.ai-message]="!message.isUser">
+        <div class="message-avatar">
+          <img *ngIf="message.isUser" [src]="userAvatar" alt="You">
+          <mat-icon *ngIf="!message.isUser">smart_toy</mat-icon>
+        </div>
+        <div class="message-content">
+          <div class="message-text" *ngIf="message.text">{{ message.text }}</div>
+          <div class="message-image" *ngIf="message.imageUrl">
+            <img [src]="message.imageUrl" alt="Uploaded image">
+          </div>
+          <div class="message-time">{{ message.timestamp | date:'shortTime' }}</div>
+        </div>
+      </div>
+      <div *ngIf="loading" class="message ai-message">
+        <div class="message-avatar">
+          <mat-icon>smart_toy</mat-icon>
+        </div>
+        <div class="message-content">
+          <div class="message-text">Typing...</div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="input-container">
+      <div class="file-upload">
+        <input type="file" id="fileInput" (change)="handleFileInput($event)" accept="image/*" hidden>
+        <label for="fileInput">
+          <mat-icon>attach_file</mat-icon>
+        </label>
+        <span class="file-name" *ngIf="selectedFile">{{ selectedFile.name }}</span>
+        <button class="remove-file" *ngIf="selectedFile" (click)="removeFile()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+      <input type="text" 
+             [(ngModel)]="newMessage" 
+             placeholder="Type your message..."
+             (keyup.enter)="sendMessage()">
+      <button class="send-button" (click)="sendMessage()" [disabled]="(!newMessage && !selectedFile) || loading">
+        <mat-icon>send</mat-icon>
+      </button>
+    </div>
+  </div>

@@ -1,0 +1,393 @@
+@use '../../styles/shared-variables' as vars;
+
+.patient-table-container {
+  margin: 20px 20px 5px 20px;
+
+  h2 {
+    color: vars.$text-dark;
+    font-family: vars.$font-01;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+}
+
+.patient-table {
+  display: table;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+  margin-top: 10px;
+  table-layout: fixed;
+
+  .table-header {
+    display: table-row;
+    background-color: vars.$text-dark;
+    color: vars.$ice-crystal;
+    font-weight: 600;
+    border-radius: 6px;
+    overflow: hidden;
+
+    .header-cell {
+      display: table-cell;
+      padding: 14px 16px;
+      text-align: left;
+      font-family: vars.$font-01;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+      position: relative;
+      
+      &:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 20%;
+        height: 60%;
+        width: 1px;
+        background-color: rgba(vars.$ice-crystal, 0.3);
+      }
+
+      &:nth-child(1) { width: 22%; }
+      &:nth-child(2) { width: 35%; }
+      &:nth-child(3) { width: 30%; }
+      &:nth-child(4) { width: 15%; }
+    }
+  }
+
+  .table-row {
+    display: table-row;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(vars.$text-dark, 0.1);
+    background-color: white;
+    transition: all 0.25s ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(vars.$text-dark, 0.15);
+      
+      .patient-avatar {
+        transform: scale(1.03);
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  .table-cell {
+    display: table-cell;
+    padding: 16px;
+    vertical-align: middle;
+    border-bottom: 1px solid rgba(vars.$text-dark, 0.05);
+    word-wrap: break-word;
+
+    &.patient-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+
+      .patient-avatar {
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid vars.$olive-green;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      span {
+        font-weight: 500;
+        color: vars.$text-dark;
+        font-family: vars.$font-01;
+        font-size: 1.1rem;
+      }
+    }
+
+    &.description {
+      padding: 16px;
+      font-size: 1rem;
+      color: vars.$text-dark;
+      min-height: 100px;
+      line-height: 1.5;
+      white-space: normal;
+      overflow: visible;
+      word-break: break-word;
+      border-left: 1px dashed rgba(vars.$olive-green, 0.3);
+      border-right: 1px dashed rgba(vars.$olive-green, 0.3);
+    }
+
+    &.mindmate-interpretation {
+      padding: 16px;
+      cursor: pointer;
+      
+      .summary {
+        position: relative;
+        padding-right: 24px;
+        color: vars.$text-dark;
+        font-family: vars.$font-01;
+        line-height: 1.4;
+        
+        &:hover {
+          color: vars.$primary-dark;
+          
+          .info-icon {
+            color: vars.$olive-green;
+          }
+        }
+      }
+      
+      .info-icon {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 18px;
+        color: #999;
+        transition: all 0.2s ease;
+      }
+    }
+
+    &.actions {
+      padding: 16px;
+      
+      .action-buttons {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-start;
+        
+        .xray-button, .modify-button {
+          display: inline-flex;
+          align-items: center;
+          padding: 8px 14px;
+          border-radius: 5px;
+          font-size: 0.8rem;
+          font-family: vars.$font-01;
+          transition: all 0.25s ease;
+          cursor: pointer;
+          border: none;
+          outline: none;
+          
+          mat-icon {
+            margin-right: 6px;
+            font-size: 18px;
+            transition: transform 0.2s ease;
+          }
+
+          &:hover {
+            transform: translateY(-1px);
+            
+            mat-icon {
+              transform: scale(1.1);
+            }
+          }
+
+          &:active {
+            transform: translateY(0);
+          }
+        }
+
+        .xray-button {
+          background-color: vars.$olive-green;
+          color: white;
+          box-shadow: 0 2px 5px rgba(vars.$olive-green, 0.3);
+
+          &:hover {
+            background-color: darken(vars.$olive-green, 8%);
+            box-shadow: 0 3px 8px rgba(vars.$olive-green, 0.4);
+          }
+        }
+
+        .modify-button {
+          background-color: rgba(vars.$olive-green, 0.1);
+          color: vars.$text-dark;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+          height: 48px;
+          width: 50px;
+
+          &:hover {
+            background-color: rgba(vars.$olive-green, 0.2);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+          }
+
+          mat-icon {
+            color: vars.$olive-green;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Modals */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.xray-modal {
+  background-color: white;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: modalFadeIn 0.3s ease-out;
+
+  .close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s ease;
+
+    mat-icon {
+      color: white;
+      font-size: 20px;
+    }
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.4);
+      transform: rotate(90deg);
+    }
+  }
+
+  .xray-image-container {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    overflow: auto;
+    border: 3px solid vars.$ice-crystal;
+    border-bottom: none;
+
+    .xray-image {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .patient-info {
+    padding: 20px;
+    background-color: vars.$ice-crystal;
+    text-align: center;
+    border-top: none;
+
+    h3 {
+      margin: 0 0 8px 0;
+      color: vars.$text-dark;
+      font-family: vars.$font-01;
+    }
+
+    p {
+      margin: 0;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.mindmate-modal {
+  background-color: rgba(vars.$ice-crystal, 0.6);
+  border-radius: 10px;
+  width: 800px;
+  max-height: 90vh;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: modalFadeIn 0.3s ease-out;
+  padding: 0; /* Remove padding from modal */
+  border: 3px solid white;
+  
+
+  .modal-content-container {
+    position: relative;
+    padding: 30px;
+    max-height: 80vh;
+    overflow-y: auto;
+    border: 2px solid rgba(vars.$text-dark, 0.05);
+   
+  }
+
+  .close-button {
+    position: sticky;
+    top: 15px;
+    right: 15px;
+    float: right;
+    margin-left: auto;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s ease; /* Only transition transform */
+
+    mat-icon {
+      color: rgba(vars.$text-dark, 0.9);
+      font-size: 20px;
+    }
+
+    &:hover {
+    
+      transform: rotate(90deg);
+    }
+  }
+
+  h3 {
+    color: vars.$primary-dark;
+    font-family: vars.$font-01;
+    margin-bottom: 20px;
+    border-bottom: 2px solid vars.$olive-green;
+    padding-bottom: 10px;
+    clear: both; /* Ensure it appears below the floated button */
+  }
+
+  .interpretation-content {
+    line-height: 1.6;
+    background: rgba(vars.$ice-crystal, 0.5);
+    border-radius: 6px;
+    padding: 15px;
+    margin-top: 10px;
+  }
+
+  .severity-indicator {
+    margin-top: 20px;
+    text-align: right;
+    
+    span {
+      padding: 6px 12px;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 0.8rem;
+      
+      &.severity-high { background: #FFCDD2; color: #C62828; }
+      &.severity-medium { background: #FFE0B2; color: #EF6C00; }
+      &.severity-low { background: #C8E6C9; color: #2E7D32; }
+    }
+  }
+}

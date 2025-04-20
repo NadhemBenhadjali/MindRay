@@ -1,0 +1,36 @@
+<div class="sidebar chatbot-sidebar">
+    <div class="sidebar-header">
+      <h2>Chat Pannel</h2>
+    </div>
+    
+    <div class="new-chat-container">
+      <button class="new-chat-btn" (click)="startNewChat()">
+        <mat-icon>add</mat-icon>
+        <span>Start New Chat</span>
+      </button>
+    </div>
+  
+    <div class="conversations-list">
+      <div *ngFor="let chat of conversations" 
+           class="conversation-card" 
+           [class.active]="chat.id === activeChatId"
+           (click)="setActiveChat(chat.id)">
+        <div class="conversation-header">
+          <mat-icon class="chat-icon">forum</mat-icon>
+          <span class="conversation-title">{{ chat.title }}</span>
+        </div>
+        <div class="conversation-preview">{{ chat.lastMessage | truncate:50 }}</div>
+        <div class="conversation-meta">
+          <span class="date">{{ chat.lastUpdated | date:'shortDate' }}</span>
+          <span class="patient-id">ID: {{ chat.patientId }}</span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="sidebar-footer">
+      <div class="connection-status">
+        <mat-icon>fiber_manual_record</mat-icon>
+        <span>XpeRay/MindMate</span>
+      </div>
+    </div>
+  </div>
