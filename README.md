@@ -7,6 +7,12 @@
 - **Website**: An Angular-based frontend for login and doctor appointment scheduling.
 
 ---
+## 🧭 System Workflow Overview
+
+The following diagram illustrates the end-to-end workflow of the MindRay system, combining radiological scan interpretation, mental health support, and appointment management:
+
+![System Workflow](system-diagram.png)
+
 
 ## 🧠 MindMate – Mental Health AI System
 
