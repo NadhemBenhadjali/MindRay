@@ -1,4 +1,4 @@
-# 🧠 MindRay
+#  MindRay
 
 **MindRay** is an integrated AI system designed to streamline medical workflows by combining advanced radiology analysis with mental health support. The system includes:
 
@@ -7,26 +7,26 @@
 - **Website**: An Angular-based frontend for login and doctor appointment scheduling.
 
 ---
-## 🧭 System Workflow Overview
+##  System Workflow Overview
 
 The following diagram illustrates the end-to-end workflow of the MindRay system, combining radiological scan interpretation, mental health support, and appointment management:
 
 ![System Workflow](system-diagram.png)
 
 
-## 🧠 MindMate – Mental Health AI System
+## MindMate – Mental Health AI System
 
 MindMate is a conversational AI platform fine-tuned to support mental health tasks, including empathetic dialogue and automated symptom extraction. Built on the **LLaMA 3-8B Chat** model and enhanced through **PEFT (LoRA)**, MindMate brings state-of-the-art AI capabilities to the domain of mental health care.
 
-### 🔍 Features
+###  Features
 
-- 💬 **Conversational AI** — Engages in supportive, non-judgmental conversations with users.
-- 🧠 **Symptom Analysis** — Extracts and summarizes mental health symptoms from user dialogue.
-- ⚙️ **Fine-Tuned Model** — Custom-trained on mental health datasets for high contextual understanding.
-- 🚀 **Lightweight Deployment** — Runs efficiently on consumer GPUs (e.g., NVIDIA P100 with fp16).
-- 📊 **Prompt Engineering** — Tailored prompts for therapeutic dialogue and clinical text analysis.
+-  **Conversational AI** — Engages in supportive, non-judgmental conversations with users.
+-  **Symptom Analysis** — Extracts and summarizes mental health symptoms from user dialogue.
+-  **Fine-Tuned Model** — Custom-trained on mental health datasets for high contextual understanding.
+-  **Lightweight Deployment** — Runs efficiently on consumer GPUs (e.g., NVIDIA P100 with fp16).
+-  **Prompt Engineering** — Tailored prompts for therapeutic dialogue and clinical text analysis.
 
-### 📚 Datasets Used
+###  Datasets Used
 
 MindMate was fine-tuned on a merged corpus of mental health counseling datasets:
 
@@ -34,7 +34,7 @@ MindMate was fine-tuned on a merged corpus of mental health counseling datasets:
 - [`mpingale/mental-health-chat-dataset`](https://huggingface.co/datasets/mpingale/mental-health-chat-dataset)
 - [`heliosbrahma/mental_health_chatbot_dataset`](https://huggingface.co/datasets/heliosbrahma/mental_health_chatbot_dataset)
 
-### 📓 Notebooks (Located in `/MindMate`)
+###  Notebooks (Located in `/MindMate`)
 
 #### `llama-3-8b-chat-hf-finetuning.ipynb`
 - Loads and preprocesses data
@@ -55,41 +55,41 @@ MindMate was fine-tuned on a merged corpus of mental health counseling datasets:
 
 ---
 
-## 🖼️ XpeRay – Vision-Language Model for Radiology
+##  XpeRay – Vision-Language Model for Radiology
 
 **XpeRay** is an AI-powered vision-language model designed to automate the analysis of radiological images and generate clinically accurate medical reports. It leverages **LLaMA 3.2** for both visual encoding and text generation, and is trained using LoRA and supervised fine-tuning techniques.
 
-### ✅ Key Features
+###  Key Features
 
-- 📷 **Medical Image Analysis** — Processes and interprets radiology images
-- 📝 **Report Generation** — Outputs diagnostic reports in natural language
-- 🧠 **Fine-Tuned Architecture** — Uses LoRA and supervised fine-tuning
-- ⚡ **Real-Time Support** — Assists radiologists in reducing time and improving accuracy
+-  **Medical Image Analysis** — Processes and interprets radiology images
+-  **Report Generation** — Outputs diagnostic reports in natural language
+-  **Fine-Tuned Architecture** — Uses LoRA and supervised fine-tuning
+-  **Real-Time Support** — Assists radiologists in reducing time and improving accuracy
 
-### 📓 Scripts (Located in `/XpeRay`)
+###  Scripts (Located in `/XpeRay`)
 
 - `training.py` — Fine-tunes the XpeRay model on radiology image-report datasets
 - `test.py` — Evaluates the model’s performance and generates diagnostic outputs
 
 ---
 
-## 🌐 Website – Angular Frontend
+##  Website – Angular Frontend
 
 A responsive UI built with **Angular**, enabling:
 
-- 🔐 **User Login** and authentication
-- 📅 **Doctor Appointment Booking**
-- 📊 **Integration with AI outputs**
+- **User Login** and authentication
+- **Doctor Appointment Booking**
+- **Integration with AI outputs**
 
 Located in the `/Website` directory.
 
 ---
 
-## ⚙️ Angular CLI – Frontend Development Guide
+##  Angular CLI – Frontend Development Guide
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.4.
 
-### 📦 Development Server
+###  Development Server
 
 Start a local dev server:
 
@@ -99,7 +99,7 @@ ng serve
 
 Visit `http://localhost:4200/` in your browser. The app reloads automatically when you make changes.
 
-### 🏗️ Code Scaffolding
+###  Code Scaffolding
 
 To generate a new component:
 
@@ -113,7 +113,7 @@ For available schematics (e.g., directives, pipes):
 ng generate --help
 ```
 
-### 🛠️ Building the Project
+### Building the Project
 
 To build the application for production:
 
@@ -123,7 +123,7 @@ ng build
 
 Compiled files will be in the `dist/` directory.
 
-### 🧪 Running Unit Tests
+###  Running Unit Tests
 
 Run tests with the [Karma](https://karma-runner.github.io) test runner:
 
@@ -131,7 +131,7 @@ Run tests with the [Karma](https://karma-runner.github.io) test runner:
 ng test
 ```
 
-### 🔍 End-to-End Testing
+###  End-to-End Testing
 
 To run e2e tests:
 
@@ -139,15 +139,15 @@ To run e2e tests:
 ng e2e
 ```
 
-> ⚠️ Note: Angular CLI doesn’t include an e2e framework by default. Choose one (e.g., Cypress, Playwright) as needed.
+>  Note: Angular CLI doesn’t include an e2e framework by default. Choose one (e.g., Cypress, Playwright) as needed.
 
-### 📘 Additional Resources
+###  Additional Resources
 
 - [Angular CLI Overview](https://angular.dev/tools/cli)
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```bash
 MindRay/
@@ -167,7 +167,7 @@ MindRay/
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 1. **Clone the repository**
 
@@ -196,12 +196,12 @@ ng serve
 
 ---
 
-## 📄 License
+##  License
 
 MIT License. See `LICENSE` file for full terms.
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Pull requests are welcome! For major changes, open an issue first to discuss what you'd like to improve or add.
